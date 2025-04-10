@@ -1,8 +1,6 @@
 <script setup>
   import { ref, onMounted } from 'vue'
 
-  import { Button } from '@/components/ui/button'
-
   const soundData = ref([])
   const currentSongName = ref(null)
   const currentSongUrl = ref(null)
