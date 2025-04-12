@@ -1,7 +1,11 @@
 <script setup>
     import SongItem from '@/components/SongItem.vue'
     
-    const songs = 20
+    import { useSongStore } from '@/stores/useSongStore'
+
+    const songStore = useSongStore()
+    
+    await songStore.getSongs()
 </script>
 
 <template>
@@ -15,19 +19,19 @@
 
             <!-- songs list -->
             <div class="w-full flex flex-wrap justify-center items-start gap-x-6 gap-y-8 py-8 pl-8 pr-4">
-                <SongItem v-for="(song, index) in songs" imageFile="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" title="Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  " />
+                <SongItem v-for="(song, index) in songStore.songs" @click="songStore.setCurrentSong(song)" :imageFile="song.imageFile" :title="song.title" />
             </div>
         </div>
 
         <!-- right col -->
         <div class="h-screen w-[40%] p-8 text-slate-100">
         <!-- current song card -->
-        <div class="w-full rounded-2xl px-16 pt-16 pb-12 bg-slate-800 flex flex-col gap-8">
+        <div v-if="songStore.currentSong.title || songStore.currentSong.imageFile" class="w-full rounded-2xl px-16 pt-16 pb-12 bg-slate-800 flex flex-col gap-8">
             <div class="flex flex-col gap-4">
                 <div>
-                    <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="w-full aspect-square rounded-lg" alt="song cover">
+                    <img :src="songStore.currentSong.imageFile" class="w-full aspect-square rounded-lg" alt="song cover">
                 </div>
-                <p class="text-slate-100 text-2xl line-clamp-1">Tên bài hát chữ chạy</p>
+                <p class="text-slate-100 text-2xl line-clamp-1">{{ songStore.currentSong.title }}</p>
             </div>
             <div class="w-full h-auto flex justify-center">
                 <div class="flex items-center gap-8">

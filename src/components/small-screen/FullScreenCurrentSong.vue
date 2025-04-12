@@ -1,6 +1,8 @@
 <script setup>
+    import { useSongStore } from '@/stores/useSongStore'
     import { useFullscreenSongStore } from '@/stores/useFullscreenSongStore'
 
+    const songStore = useSongStore()
     const fullScreenSongStore = useFullscreenSongStore()
 </script>
 
@@ -12,9 +14,9 @@
         <div class="w-full flex flex-col flex-1 px-12 justify-center gap-16">
             <div class="flex flex-col gap-6">
                 <div>
-                    <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="w-full aspect-square rounded-lg" alt="song cover">
+                    <img :src="songStore.currentSong.imageFile" class="w-full aspect-square rounded-lg" alt="song cover">
                 </div>
-                <p class="text-slate-100 text-2xl line-clamp-1">Tên bài hát chữ chạy</p>
+                <p class="text-slate-100 text-2xl line-clamp-1">{{ songStore.currentSong.title }}</p>
             </div>
             <div class="w-full h-auto flex justify-center">
                 <div class="flex items-center gap-8">
