@@ -1,40 +1,138 @@
 <script setup>
-  import { ref, onMounted } from 'vue'
-
-  const soundData = ref([])
-  const currentSongName = ref(null)
-  const currentSongUrl = ref(null)
-
-  const changeCurrentSongName = (newSongName, songUrl) => {
-    currentSongName.value = newSongName
-    currentSongUrl.value = songUrl
-  }
-
-  onMounted(async () => {
-    try {
-      const response = await fetch('/sounds.json')
-      const data = await response.json()
-      soundData.value = data
-    } catch (error) {
-      console.error('Error fetching JSON data:', error)
-    }
-  })
+  import { ref } from 'vue'
 </script>
 
 <template>
-  <div class="bg-gray-900 text-blue-50 p-16">
-    <div class="flex flex-wrap gap-8 justify-center relative mb-24">
-      <div v-for="(sound, index) in soundData" :key="index" class="bg-gray-800 rounded-lg p-4 w-96 space-y-4">
-        <p class="text-xl line-clamp-1">{{ sound.name }}</p>
-        <div @click="changeCurrentSongName(sound.name, sound.url)" class="bg-cyan-600 size-20 m-auto rounded-full flex justify-center items-center cursor-pointer hover:bg-black-700">
-          <p>Phát nhạc</p>
+  <div class="w-full h-screen overflow-auto bg-slate-900 relative">
+    <!-- [small screen] header -->
+    <div class="w-full h-16 flex justify-center items-center">
+      <p class="text-slate-100 font-playwrite text-2xl">Cấm Thuật Sư</p>
+    </div>
+
+    <!-- [small screen] songs list -->
+    <div class="mt-4 pb-24 flex flex-col gap-2">
+      <!-- [small screen] song item -->
+      <div class="flex gap-2 items-center font-bevietnam text-base px-4 py-2 hover:bg-slate-800 cursor-pointer">
+        <div class="size-10 min-w-10 min-h-10">
+          <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-10 rounded-lg" alt="song cover">
         </div>
-        <!-- <video :src="sound.url" controls loop class="m-auto"></video> -->
+        <p class="text-slate-100 line-clamp-1">
+          Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+        </p>
       </div>
-      <div class="fixed w-full h-24 bg-gray-800 bottom-0 border-t-1 border-t-cyan-700 flex justify-center items-center">
-        <p class="text-xl">Bài hát hiện tại: {{ currentSongName }}</p>
+
+      <div class="flex gap-2 items-center font-bevietnam text-base px-4 py-2 hover:bg-slate-800 cursor-pointer">
+        <div class="size-10 min-w-10 min-h-10">
+          <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-10 rounded-lg" alt="song cover">
+        </div>
+        <p class="text-slate-100 line-clamp-1">
+          Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+        </p>
+      </div>
+      <div class="flex gap-2 items-center font-bevietnam text-base px-4 py-2 hover:bg-slate-800 cursor-pointer">
+        <div class="size-10 min-w-10 min-h-10">
+          <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-10 rounded-lg" alt="song cover">
+        </div>
+        <p class="text-slate-100 line-clamp-1">
+          Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+        </p>
+      </div>
+      <div class="flex gap-2 items-center font-bevietnam text-base px-4 py-2 hover:bg-slate-800 cursor-pointer">
+        <div class="size-10 min-w-10 min-h-10">
+          <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-10 rounded-lg" alt="song cover">
+        </div>
+        <p class="text-slate-100 line-clamp-1">
+          Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+        </p>
+      </div>
+      <div class="flex gap-2 items-center font-bevietnam text-base px-4 py-2 hover:bg-slate-800 cursor-pointer">
+        <div class="size-10 min-w-10 min-h-10">
+          <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-10 rounded-lg" alt="song cover">
+        </div>
+        <p class="text-slate-100 line-clamp-1">
+          Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+        </p>
+      </div>
+      <div class="flex gap-2 items-center font-bevietnam text-base px-4 py-2 hover:bg-slate-800 cursor-pointer">
+        <div class="size-10 min-w-10 min-h-10">
+          <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-10 rounded-lg" alt="song cover">
+        </div>
+        <p class="text-slate-100 line-clamp-1">
+          Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+        </p>
+      </div>
+      <div class="flex gap-2 items-center font-bevietnam text-base px-4 py-2 hover:bg-slate-800 cursor-pointer">
+        <div class="size-10 min-w-10 min-h-10">
+          <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-10 rounded-lg" alt="song cover">
+        </div>
+        <p class="text-slate-100 line-clamp-1">
+          Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+        </p>
+      </div>
+      <div class="flex gap-2 items-center font-bevietnam text-base px-4 py-2 hover:bg-slate-800 cursor-pointer">
+        <div class="size-10 min-w-10 min-h-10">
+          <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-10 rounded-lg" alt="song cover">
+        </div>
+        <p class="text-slate-100 line-clamp-1">
+          Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+        </p>
+      </div>
+      <div class="flex gap-2 items-center font-bevietnam text-base px-4 py-2 hover:bg-slate-800 cursor-pointer">
+        <div class="size-10 min-w-10 min-h-10">
+          <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-10 rounded-lg" alt="song cover">
+        </div>
+        <p class="text-slate-100 line-clamp-1">
+          Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+        </p>
+      </div>
+      <div class="flex gap-2 items-center font-bevietnam text-base px-4 py-2 hover:bg-slate-800 cursor-pointer">
+        <div class="size-10 min-w-10 min-h-10">
+          <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-10 rounded-lg" alt="song cover">
+        </div>
+        <p class="text-slate-100 line-clamp-1">
+          Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+        </p>
+      </div>
+      <div class="flex gap-2 items-center font-bevietnam text-base px-4 py-2 hover:bg-slate-800 cursor-pointer">
+        <div class="size-10 min-w-10 min-h-10">
+          <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-10 rounded-lg" alt="song cover">
+        </div>
+        <p class="text-slate-100 line-clamp-1">
+          Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+        </p>
+      </div>
+      <div class="flex gap-2 items-center font-bevietnam text-base px-4 py-2 hover:bg-slate-800 cursor-pointer">
+        <div class="size-10 min-w-10 min-h-10">
+          <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-10 rounded-lg" alt="song cover">
+        </div>
+        <p class="text-slate-100 line-clamp-1">
+          Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+        </p>
+      </div>
+      <div class="flex gap-2 items-center font-bevietnam text-base px-4 py-2 hover:bg-slate-800 cursor-pointer">
+        <div class="size-10 min-w-10 min-h-10">
+          <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-10 rounded-lg" alt="song cover">
+        </div>
+        <p class="text-slate-100 line-clamp-1">
+          Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+        </p>
       </div>
     </div>
+
+    <!-- [small screen] current song -->
+    <div class="w-full h-20 fixed bottom-0 shadow-lg p-4 flex gap-6 justify-between bg-slate-800 text-slate-100">
+        <div class="flex gap-2">
+          <div class="size-12 min-w-12 min-h-12">
+            <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-12 rounded-lg" alt="song cover">
+          </div>
+          <p class="line-clamp-2 text-base">
+            Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+          </p>
+        </div>
+        <div class="flex gap-8 items-center">
+          <i class="fa-solid fa-pause text-2xl cursor-pointer"></i>
+          <i class="fa-solid fa-forward-step text-2xl cursor-pointer"></i>
+        </div>
+    </div>
   </div>
-  <audio v-if="currentSongUrl" :src="currentSongUrl" controls autoplay loop class="hidden"></audio>
 </template>
