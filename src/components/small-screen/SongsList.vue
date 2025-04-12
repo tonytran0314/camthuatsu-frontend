@@ -1,4 +1,4 @@
-<script setup>
+<script setup>    
     import SongItem from '@/components/SongItem.vue'
 
     import { useSongStore } from '@/stores/useSongStore'
@@ -32,7 +32,10 @@
           <p class="line-clamp-2 text-base">{{ songStore.currentSong.title }}</p>
         </div>
         <div class="flex gap-8 items-center">
-          <i class="fa-solid fa-pause text-2xl cursor-pointer"></i>
+          <div @click="songStore.toggle()">
+            <i v-if="songStore.isPlaying" class="fa-solid fa-pause text-2xl cursor-pointer"></i>
+            <i v-else class="fa-solid fa-play text-2xl cursor-pointer"></i>
+          </div>
           <i class="fa-solid fa-forward-step text-2xl cursor-pointer"></i>
         </div>
     </div>

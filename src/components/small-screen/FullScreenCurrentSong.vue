@@ -21,8 +21,11 @@
             <div class="w-full h-auto flex justify-center">
                 <div class="flex items-center gap-8">
                     <i class="fa-solid fa-backward-step text-4xl cursor-pointer text-slate-100"></i>
-                    <div class="bg-slate-800 size-20 rounded-full flex justify-center items-center">
-                        <i class="fa-solid fa-pause text-5xl cursor-pointer text-slate-100"></i>
+                    <div @click="songStore.toggle()" class="bg-slate-800 size-20 rounded-full flex justify-center items-center cursor-pointer">
+                        <div>
+                            <i v-if="songStore.isPlaying" class="fa-solid fa-pause text-4xl text-slate-100 cursor-pointer"></i>
+                            <i v-else class="fa-solid fa-play text-4xl text-slate-100 cursor-pointer"></i>
+                        </div>
                     </div>
                     <i class="fa-solid fa-forward-step text-4xl cursor-pointer text-slate-100"></i>
                 </div>
