@@ -1,5 +1,7 @@
 <script setup>
-    
+    import { useFullscreenSongStore } from '@/stores/useFullscreenSongStore'
+
+    const fullScreenSongStore = useFullscreenSongStore()
 </script>
 
 <template>
@@ -121,7 +123,7 @@
 
     <!-- [small screen] current song -->
     <div class="w-full h-20 fixed bottom-0 shadow-lg p-4 flex gap-6 justify-between bg-slate-800 text-slate-100">
-        <div class="flex gap-2">
+        <div @click="fullScreenSongStore.enterFullscreen" class="flex gap-2">
           <div class="size-12 min-w-12 min-h-12">
             <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="size-12 rounded-lg" alt="song cover">
           </div>
