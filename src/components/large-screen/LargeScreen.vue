@@ -3,26 +3,26 @@
 </script>
 
 <template>
-    <div class="flex w-full h-screen bg-slate-900 overflow-auto scrollbar-hide">
+    <div class="flex w-full h-screen bg-slate-900">
         <!-- left col -->
-        <div class="h-screen w-[60%] overflow-x-hidden overflow-y-auto scrollbar-hide">
+        <div class="h-screen pb-12 w-[60%] overflow-x-hidden overflow-y-auto scrollbar-hide">
         <!-- header -->
-        <div class="w-full h-16 flex justify-center items-center">
-            <p class="font-playwrite text-slate-100 text-2xl">Cấm Thuật Sư</p>
-        </div>
+            <div class="w-full h-16 flex justify-center items-center">
+                <p class="font-playwrite text-slate-100 text-2xl">Cấm Thuật Sư</p>
+            </div>
 
-        <!-- songs list -->
-        <div class="size-full flex flex-wrap justify-center items-start gap-x-6 gap-y-8 py-8 pl-8 pr-4">
-            <!-- item -->
-            <div v-for="(song, index) in songs" class="flex flex-col gap-3 w-36">
-            <div>
-                <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="w-full aspect-square rounded-lg" alt="song cover">
+            <!-- songs list -->
+            <div class="w-full flex flex-wrap justify-center items-start gap-x-6 gap-y-8 py-8 pl-8 pr-4">
+                <!-- item -->
+                <div v-for="(song, index) in songs" class="flex flex-col gap-3 w-36">
+                <div>
+                    <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="w-full aspect-square rounded-lg" alt="song cover">
+                </div>
+                <p class="text-slate-100 line-clamp-2">
+                    Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+                </p>
+                </div>
             </div>
-            <p class="text-slate-100 line-clamp-2">
-                Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
-            </p>
-            </div>
-        </div>
         </div>
 
         <!-- right col -->

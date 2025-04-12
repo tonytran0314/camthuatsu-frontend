@@ -11,12 +11,12 @@
 </script>
 
 <template>
-  <div class="sm:hidden">
+  <div class="lg:hidden">
     <FullScreenCurrentSong v-if="fullScreenSongStore.isFullscreen" />
     <SongsList v-else />
   </div>
   
-  <div class="hidden sm:block">
+  <div class="hidden lg:block">
     <LargeScreenView />
   </div>
 </template>
