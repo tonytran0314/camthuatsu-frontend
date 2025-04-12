@@ -1,0 +1,50 @@
+<script setup>
+  const songs = 20
+</script>
+
+<template>
+    <div class="flex w-full h-screen bg-slate-900 overflow-auto scrollbar-hide">
+        <!-- left col -->
+        <div class="h-screen w-[60%] overflow-x-hidden overflow-y-auto scrollbar-hide">
+        <!-- header -->
+        <div class="w-full h-16 flex justify-center items-center">
+            <p class="font-playwrite text-slate-100 text-2xl">Cấm Thuật Sư</p>
+        </div>
+
+        <!-- songs list -->
+        <div class="size-full flex flex-wrap justify-center items-start gap-x-6 gap-y-8 py-8 pl-8 pr-4">
+            <!-- item -->
+            <div v-for="(song, index) in songs" class="flex flex-col gap-3 w-36">
+            <div>
+                <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="w-full aspect-square rounded-lg" alt="song cover">
+            </div>
+            <p class="text-slate-100 line-clamp-2">
+                Tên bài hát ở đây, nhiều chữ Tên bài hát ở đây, nhiều chữ  
+            </p>
+            </div>
+        </div>
+        </div>
+
+        <!-- right col -->
+        <div class="h-screen w-[40%] p-8 text-slate-100">
+        <!-- current song card -->
+        <div class="w-full rounded-2xl px-16 pt-16 pb-12 bg-slate-800 flex flex-col gap-8">
+            <div class="flex flex-col gap-4">
+                <div>
+                    <img src="https://as2.ftcdn.net/jpg/13/08/49/51/1000_F_1308495170_VhNuIh06pGrlm1Xjt1P6eYWna0EALSsk.jpg" class="w-full aspect-square rounded-lg" alt="song cover">
+                </div>
+                <p class="text-slate-100 text-2xl line-clamp-1">Tên bài hát chữ chạy</p>
+            </div>
+            <div class="w-full h-auto flex justify-center">
+                <div class="flex items-center gap-8">
+                    <i class="fa-solid fa-backward-step text-4xl cursor-pointer text-slate-100"></i>
+                    <div class="bg-slate-800 size-20 rounded-full flex justify-center items-center">
+                        <i class="fa-solid fa-pause text-5xl cursor-pointer text-slate-100"></i>
+                    </div>
+                    <i class="fa-solid fa-forward-step text-4xl cursor-pointer text-slate-100"></i>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</template>
