@@ -31,16 +31,14 @@
     }
   }
   const handleSongEnded = () => {
-    // when the song ends, there are 2 choices: repeat or next song
-    // if repeat, check this first
-
-    // else next song
+    // next song
     let currentSongIndex = songStore.songs.findIndex(song => song.id === songStore.currentSong.id)
+    // if(++currentSongIndex < songStore.songs.length) 
     songStore.setCurrentSong(songStore.songs[++currentSongIndex])
 
-      // if isPlaylistRepeat, then play the first song
+    // if isPlaylistRepeat, then play the first song
 
-      // else, stop when the song ends
+    // else, stop when the song ends
   }
 </script>
 
@@ -65,6 +63,7 @@
     v-show="songStore.currentSong.soundFile"
     class="hidden"
     :src="songStore.currentSong.soundFile"
+    :loop="songStore.repeatCurrentSong"
     controls>
   </audio>
   

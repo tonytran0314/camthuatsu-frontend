@@ -16,6 +16,7 @@ export const useSongStore = defineStore('useSongStore', () => {
     })
     const isPlaying = ref(false)
     const audioRef = ref(null)
+    const repeatCurrentSong = ref(false)
 
 
 
@@ -56,9 +57,14 @@ export const useSongStore = defineStore('useSongStore', () => {
         }
     }
 
+    // toggle play/pause
     const toggle = () => {
         if (!audioRef.value) return
         isPlaying.value ? pause() : play()
+    }
+
+    const toggleRepeat = () => {
+        repeatCurrentSong.value = !repeatCurrentSong.value
     }
 
 
@@ -70,11 +76,13 @@ export const useSongStore = defineStore('useSongStore', () => {
         currentSong,
         audioRef,
         isPlaying,
+        repeatCurrentSong,
         getSongs,
         setCurrentSong,
         setAudioRef,
         toggle,
         play,
-        pause
+        pause,
+        toggleRepeat
     }
 })
