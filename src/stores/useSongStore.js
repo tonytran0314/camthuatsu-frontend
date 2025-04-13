@@ -9,6 +9,7 @@ export const useSongStore = defineStore('useSongStore', () => {
     /* -------------------------------------------------------------------------- */
     const songs = ref(null)
     const currentSong = ref({
+        id: null,
         title: null,
         imageFile: null,
         soundFile: null
@@ -31,6 +32,7 @@ export const useSongStore = defineStore('useSongStore', () => {
     }
     const setCurrentSong = (song) => {
         currentSong.value = {
+            id: song.id,
             title: song.title,
             imageFile: song.imageFile,
             soundFile: song.soundFile

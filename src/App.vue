@@ -21,7 +21,6 @@
   watch(() => songStore.currentSong?.soundFile, (newSrc) => {
     if (newSrc && audioEl.value) {
       isAudioReady.value = false
-      // KHÔNG cần gọi audioEl.value.load() nữa
     }
   })
 
@@ -30,6 +29,18 @@
     if (audioEl.value && isAudioReady.value) {
       songStore.play()
     }
+  }
+  const handleSongEnded = () => {
+    // when the song ends, there are 2 choices: repeat or next song
+    // if repeat, check this first
+
+    // else next song
+    let currentSongIndex = songStore.songs.findIndex(song => song.id === songStore.currentSong.id)
+    songStore.setCurrentSong(songStore.songs[++currentSongIndex])
+
+      // if isPlaylistRepeat, then play the first song
+
+      // else, stop when the song ends
   }
 </script>
 
@@ -50,11 +61,11 @@
   <audio
     ref="audioEl"
     @canplaythrough="handleCanPlayThrough"
+    @ended="handleSongEnded"
     v-show="songStore.currentSong.soundFile"
     class="hidden"
     :src="songStore.currentSong.soundFile"
-    controls
-    loop>
+    controls>
   </audio>
   
 </template>
