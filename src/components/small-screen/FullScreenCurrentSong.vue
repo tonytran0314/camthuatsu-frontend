@@ -4,6 +4,25 @@
 
     const songStore = useSongStore()
     const fullScreenSongStore = useFullscreenSongStore()
+
+    const playPrevSong = () => {
+        let currentSongIndex = songStore.songs.findIndex(song => song.id === songStore.currentSong.id)
+        if(currentSongIndex > 0) {
+            songStore.setCurrentSong(songStore.songs[--currentSongIndex])
+        } else {
+            songStore.setCurrentSong(songStore.songs[songStore.songs.length - 1])
+        }
+    }
+
+    const playNextSong = () => {
+        let currentSongIndex = songStore.songs.findIndex(song => song.id === songStore.currentSong.id)
+        if(currentSongIndex < songStore.songs.length - 1) {
+            songStore.setCurrentSong(songStore.songs[++currentSongIndex])
+        } else {
+            songStore.setCurrentSong(songStore.songs[0])
+        }
+    }
+
 </script>
 
 <template>
@@ -24,14 +43,14 @@
                         <i class="fa-solid fa-shuffle text-xl text-slate-500 cursor-pointer"></i>
                     </div>
                     <div class="flex items-center gap-6">
-                        <i class="fa-solid fa-backward-step text-2xl cursor-pointer text-slate-100"></i>
+                        <i @click="playPrevSong" class="fa-solid fa-backward-step text-2xl cursor-pointer text-slate-100"></i>
                         <div @click="songStore.toggle()" class="bg-slate-800 size-16 rounded-full flex justify-center items-center cursor-pointer">
                             <div>
                                 <i v-if="songStore.isPlaying" class="fa-solid fa-pause text-2xl text-slate-100 cursor-pointer"></i>
                                 <i v-else class="fa-solid fa-play text-2xl text-slate-100 cursor-pointer"></i>
                             </div>
                         </div>
-                        <i class="fa-solid fa-forward-step text-2xl cursor-pointer text-slate-100"></i>
+                        <i @click="playNextSong" class="fa-solid fa-forward-step text-2xl cursor-pointer text-slate-100"></i>
                     </div>
                     <div @click="songStore.toggleRepeat" class="hidden sm:block">
                         <i v-if="songStore.repeatCurrentSong" class="fa-solid fa-repeat text-xl text-slate-100 cursor-pointer"></i>

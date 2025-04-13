@@ -7,6 +7,15 @@
     const songStore = useSongStore()
     const fullScreenSongStore = useFullscreenSongStore()
 
+    const playNextSong = () => {
+        let currentSongIndex = songStore.songs.findIndex(song => song.id === songStore.currentSong.id)
+        if(currentSongIndex < songStore.songs.length - 1) {
+            songStore.setCurrentSong(songStore.songs[++currentSongIndex])
+        } else {
+            songStore.setCurrentSong(songStore.songs[0])
+        }
+    }
+
     await songStore.getSongs()
 </script>
 
@@ -36,7 +45,7 @@
             <i v-if="songStore.isPlaying" class="fa-solid fa-pause text-2xl cursor-pointer"></i>
             <i v-else class="fa-solid fa-play text-2xl cursor-pointer"></i>
           </div>
-          <i class="fa-solid fa-forward-step text-2xl cursor-pointer"></i>
+          <i @click="playNextSong" class="fa-solid fa-forward-step text-2xl cursor-pointer"></i>
         </div>
     </div>
   </div>
