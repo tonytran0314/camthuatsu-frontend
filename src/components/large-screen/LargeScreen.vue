@@ -34,15 +34,23 @@
                 <p class="text-slate-100 text-2xl line-clamp-1">{{ songStore.currentSong.title }}</p>
             </div>
             <div class="w-full h-auto flex justify-center">
-                <div class="flex items-center gap-8">
-                    <i class="fa-solid fa-backward-step text-4xl cursor-pointer text-slate-100"></i>
-                    <div class="bg-slate-800 size-20 rounded-full flex justify-center items-center">
-                        <div @click="songStore.toggle()">
-                            <i v-if="songStore.isPlaying" class="fa-solid fa-pause text-5xl cursor-pointer"></i>
-                            <i v-else class="fa-solid fa-play text-5xl cursor-pointer"></i>
+                <div class="flex justify-around items-center w-full">
+                    <i class="fa-solid fa-shuffle text-xl text-slate-500 cursor-pointer"></i>
+                    <div class="flex items-center gap-8">
+                        <i class="fa-solid fa-backward-step text-4xl cursor-pointer text-slate-100"></i>
+                        <div class="bg-slate-800 size-20 rounded-full flex justify-center items-center">
+                            <div @click="songStore.toggle()">
+                                <i v-if="songStore.isPlaying" class="fa-solid fa-pause text-5xl cursor-pointer"></i>
+                                <i v-else class="fa-solid fa-play text-5xl cursor-pointer"></i>
+                            </div>
                         </div>
+                        <i class="fa-solid fa-forward-step text-4xl cursor-pointer text-slate-100"></i>
                     </div>
-                    <i class="fa-solid fa-forward-step text-4xl cursor-pointer text-slate-100"></i>
+                    
+                    <div @click="songStore.toggleRepeat">
+                        <i v-if="songStore.repeatCurrentSong" class="fa-solid fa-repeat text-xl text-slate-100 cursor-pointer"></i>
+                        <i v-else class="fa-solid fa-repeat text-xl text-slate-500 cursor-pointer"></i>
+                    </div>
                 </div>
             </div>
         </div>
