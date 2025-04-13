@@ -25,7 +25,7 @@
 
     <!-- [small screen] current song -->
     <div v-if="songStore.currentSong.title || songStore.currentSong.imageFile" class="w-full h-20 fixed bottom-0 shadow-lg p-4 flex gap-6 justify-between bg-slate-800 text-slate-100">
-        <div @click="fullScreenSongStore.enterFullscreen" class="flex gap-2">
+        <div @click="fullScreenSongStore.enterFullscreen" class="flex gap-2 cursor-pointer">
           <div class="size-12 min-w-12 min-h-12">
             <img :src="songStore.currentSong.imageFile" class="size-12 rounded-lg" alt="song cover">
           </div>
