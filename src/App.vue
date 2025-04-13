@@ -31,14 +31,15 @@
     }
   }
   const handleSongEnded = () => {
-    // next song
     let currentSongIndex = songStore.songs.findIndex(song => song.id === songStore.currentSong.id)
-    // if(++currentSongIndex < songStore.songs.length) 
-    songStore.setCurrentSong(songStore.songs[++currentSongIndex])
 
-    // if isPlaylistRepeat, then play the first song
-
-    // else, stop when the song ends
+    // if not reach the last song yet, play the next song
+    if(currentSongIndex < songStore.songs.length - 1) {
+      songStore.setCurrentSong(songStore.songs[++currentSongIndex])
+    } else {
+      // play the first song
+      songStore.setCurrentSong(songStore.songs[0])
+    }
   }
 </script>
 
